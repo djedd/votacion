@@ -1,5 +1,6 @@
 package com.jugadores.votacion_mundial.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.jugadores.votacion_mundial.models.Usuario;
 import com.jugadores.votacion_mundial.models.Voto;
 import com.jugadores.votacion_mundial.repositories.VotoRepository;
 
@@ -35,15 +37,15 @@ public class VotoController {
 		return votoRepository.findAll();
 	}
 
-	/*@GetMapping("/finduser/{id}")
-	public List<Voto> getUsuarioVoto(@PathVariable("id") int id) {
-		return votoRepository.findAllUserVoto(id);
+	@GetMapping("/finduser/{usuario}")
+	public List<Voto> getUsuarioVoto(@PathVariable("usuario") Usuario usuario) {
+		
+		List<Integer> id = new ArrayList<Integer>();
+		id.add(usuario.getId_usuario());
+		return votoRepository.findAllById(id);
 	}
 
-	@GetMapping("/findplayer/{id}")
-	public List<Voto> getJugadorVoto(@PathVariable("id") int id) {
-		return votoRepository.findAllJugadorVoto(id);
-	}*/
+	//
 
 	@GetMapping("/delete/{voto}")
 	public void deleteUsuario(@PathVariable("voto") Voto voto) {
