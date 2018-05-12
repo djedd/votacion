@@ -12,10 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.jugadores.votacion_mundial.models.Jugador;
 import com.jugadores.votacion_mundial.repositories.JugadorRepository;
 
 @RestController
+@JsonIgnoreProperties({"hibernatenLazyInitializer", "handler"})
 @RequestMapping("/api/v1/jugador")
 public class JugadorController {
 

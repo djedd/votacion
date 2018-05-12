@@ -13,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Table(name = "usuario")
 public class Usuario {
@@ -37,6 +39,7 @@ public class Usuario {
 	private String tipo;
 
 	@Column(name = "fechaRegistro", nullable = false)
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM-dd-yyyy HH:mm:ss")
 	private Date fechaRegistro;
 
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
