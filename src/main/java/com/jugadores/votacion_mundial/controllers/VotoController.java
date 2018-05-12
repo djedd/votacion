@@ -35,7 +35,7 @@ public class VotoController {
 		return votoRepository.findAll();
 	}
 
-	@GetMapping("/finduser/{id}")
+	/*@GetMapping("/finduser/{id}")
 	public List<Voto> getUsuarioVoto(@PathVariable("id") int id) {
 		return votoRepository.findAllUserVoto(id);
 	}
@@ -43,7 +43,7 @@ public class VotoController {
 	@GetMapping("/findplayer/{id}")
 	public List<Voto> getJugadorVoto(@PathVariable("id") int id) {
 		return votoRepository.findAllJugadorVoto(id);
-	}
+	}*/
 
 	@GetMapping("/delete/{voto}")
 	public void deleteUsuario(@PathVariable("voto") Voto voto) {
